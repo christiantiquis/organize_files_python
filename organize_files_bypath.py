@@ -9,7 +9,8 @@ def organize_files(directory):
         "Documents": [".pdf", ".docx", ".txt", ".xlsx", ".pptx"],
         "Audio": [".mp3", ".wav", ".aac"],
         "Videos": [".mp4", ".mov", ".avi"],
-        "Archives": [".zip", ".rar", ".tar", ".gz"]
+        "Archives": [".zip", ".rar", ".tar", ".gz"],
+        "Executables": [".exe", ".msi", ".pkg", ".apk"],
     }
 
     # Create folders for each file type in the target directory
