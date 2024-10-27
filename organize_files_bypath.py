@@ -34,6 +34,17 @@ def organize_files(directory):
                 print(f"Moved {filename} to {folder} folder")
                 break
 
+def remove_empty_folders(directory):
+    # Remove empty folders in the specified directory.
+    for foldername in os.listdir(directory):
+        folder_path = os.path.join(directory, foldername)
+        # Check if it's a directory
+        if os.path.isdir(folder_path):
+            # Remove folder if it's empty
+            if not os.listdir(folder_path):
+                shutil.rmtree(folder_path)
+                print(f"Removed empty folder: {folder_path}")
+
 if __name__ == "__main__":
     # Check if the path argument is provided
     if len(sys.argv) < 2:
@@ -41,6 +52,7 @@ if __name__ == "__main__":
     else:
         directory_path = sys.argv[1]
         if os.path.isdir(directory_path):
-            organize_files(directory_path)
+            organize_files(directory_path) # Organize files
+            remove_empty_folders(directory_path)  # Remove empty folders
         else:
             print(f"The specified path does not exist: {directory_path}")
